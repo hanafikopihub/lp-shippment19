@@ -3,8 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# enables devise for aurhentification
+gem 'devise'
 # enables haml
-gem 'haml', '~> 5.0'
+gem 'haml-rails'
+# enables mysql
+gem 'mysql2'
+# we use bootstrap 4 instead of 3
+gem 'bootstrap'
+gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.1'
 # Use sqlite3 as the database for Active Record
