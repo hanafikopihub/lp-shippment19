@@ -1,0 +1,182 @@
+%header.topbar
+  .topbar-left
+    %span.topbar-btn.sidebar-toggler
+      %i ☰
+    %a.topbar-btn.d-none.d-md-block{"data-provide" => "fullscreen tooltip", href: "#", title: "Fullscreen"}
+      %i.material-icons.fullscreen-default fullscreen
+      %i.material-icons.fullscreen-active fullscreen_exit
+    .dropdown.d-none.d-md-block
+      %span.topbar-btn{"data-toggle" => "dropdown"}
+        %i.ti-layout-grid3-alt
+      .dropdown-menu.dropdown-grid
+        %a.dropdown-item{href: "dashboard/general.html"}
+          %span{"data-i8-icon" => "home"}
+          %span.title Dashboard
+        %a.dropdown-item{href: "page/gallery.html"}
+          %span{"data-i8-icon" => "stack_of_photos"}
+          %span.title Gallery
+        %a.dropdown-item{href: "page/search.html"}
+          %span{"data-i8-icon" => "search"}
+          %span.title Search
+        %a.dropdown-item{href: "page-app/calendar.html"}
+          %span{"data-i8-icon" => "calendar"}
+          %span.title Calendar
+        %a.dropdown-item{href: "page-app/chat.html"}
+          %span{"data-i8-icon" => "sms"}
+          %span.title Chat
+        %a.dropdown-item{href: "page-app/mailbox.html"}
+          %span{"data-i8-icon" => "invite"}
+          %span.title Emails
+        %a.dropdown-item{href: "page-app/users.html"}
+          %span{"data-i8-icon" => "contacts"}
+          %span.title Contacts
+        %a.dropdown-item{href: "widget/chart.html"}
+          %span{"data-i8-icon" => "bar_chart"}
+          %span.title Charts
+        %a.dropdown-item{href: "page/profile.html"}
+          %span{"data-i8-icon" => "businessman"}
+          %span.title Profile
+    .topbar-divider.d-none.d-md-block
+    #theadmin-search.lookup.d-none.d-md-block.topbar-search
+      %input.form-control.w-300px{type: "text"}/
+      .lookup-placeholder
+        %i.ti-search
+        %span{"data-back-speed" => "50", "data-loop" => "false", "data-provide" => "typing", "data-show-cursor" => "false", "data-type" => "<strong>Type</strong> Button|<strong>Type</strong> Slider|<strong>Type</strong> Layout|<strong>Type</strong> Modal|<strong>Try</strong> typing any keyword...", "data-type-speed" => "90"}
+  .topbar-right
+    %a.topbar-btn{"data-toggle" => "quickview", href: "#qv-global"}
+      %i.ti-align-right
+    .topbar-divider
+    %ul.topbar-btns
+      %li.dropdown
+        %span.topbar-btn{"data-toggle" => "dropdown"}
+          %img.avatar{alt: "...", src: image_url('avatar/1.jpg')}/
+        .dropdown-menu.dropdown-menu-right
+          - if user_signed_in?
+            = link_to edit_user_registration_path, class:"dropdown-item" do
+              %i.ti-user
+              = "Profile"
+            %a.dropdown-item{href: "page-app/mailbox.html"}
+              .flexbox
+                %i.ti-email
+                %span.flex-grow Inbox
+                %span.badge.badge-pill.badge-info 5
+            %a.dropdown-item{href: "#"}
+              %i.ti-settings
+              Settings
+            .dropdown-divider
+            = link_to  destroy_user_session_path, method: :delete, class: "dropdown-item" do
+              %i.ti-user
+              = "Logout"
+          - else
+            = link_to new_user_session_path, class:"dropdown-item" do
+              %i.ti-user
+              = "Login"
+            = link_to new_user_registration_path, class:"dropdown-item" do
+              %i.ti-user
+              = "Register"
+      / Notifications
+      %li.dropdown.d-none.d-md-block
+        %span.topbar-btn.has-new{"data-toggle" => "dropdown"}
+          %i.ti-bell
+        .dropdown-menu.dropdown-menu-right
+          .media-list.media-list-hover.media-list-divided.media-list-xs
+            %a.media.media-new{href: "#"}
+              %span.avatar.bg-success
+                %i.ti-user
+              .media-body
+                %p New user registered
+                %time{datetime: "2018-07-14 20:00"} Just now
+            %a.media{href: "#"}
+              %span.avatar.bg-info
+                %i.ti-shopping-cart
+              .media-body
+                %p New order received
+                %time{datetime: "2018-07-14 20:00"} 2 min ago
+            %a.media{href: "#"}
+              %span.avatar.bg-warning
+                %i.ti-face-sad
+              .media-body
+                %p
+                  Refund request from
+                  %b Ashlyn Culotta
+                %time{datetime: "2018-07-14 20:00"} 24 min ago
+            %a.media{href: "#"}
+              %span.avatar.bg-primary
+                %i.ti-money
+              .media-body
+                %p New payment has made through PayPal
+                %time{datetime: "2018-07-14 20:00"} 53 min ago
+          .dropdown-footer
+            .left
+              %a{href: "#"} Read all notifications
+            .right
+              %a{"data-provide" => "tooltip", href: "#", title: "Mark all as read"}
+                %i.fa.fa-circle-o
+              %a{"data-provide" => "tooltip", href: "#", title: "Update"}
+                %i.fa.fa-repeat
+              %a{"data-provide" => "tooltip", href: "#", title: "Settings"}
+                %i.fa.fa-gear
+      / END Notifications
+      / Messages
+      %li.dropdown.d-none.d-md-block
+        %span.topbar-btn{"data-toggle" => "dropdown"}
+          %i.ti-email
+        .dropdown-menu.dropdown-menu-right
+          .media-list.media-list-divided.media-list-hover.media-list-xs.scrollable{style: "height: 290px"}
+            %a.media.media-new1{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-success
+                %img{alt: "...", src: image_url('avatar/1.jpg')}/
+              .media-body
+                %p
+                  %strong Maryam Amiri
+                  %time.float-right{datetime: "2018-07-14 20:00"} 23 min ago
+                %p.text-truncate Authoritatively exploit resource maximizing technologies before technically.
+            %a.media.media-new1{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-warning
+                %img{alt: "...", src: image_url('avatar/2.jpg')}/
+              .media-body
+                %p
+                  %strong Hossein Shams
+                  %time.float-right{datetime: "2018-07-14 20:00"} 48 min ago
+                %p.text-truncate Continually plagiarize efficient interfaces after bricks-and-clicks niches.
+            %a.media{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-dark
+                %img{alt: "...", src: image_url('avatar/3.jpg')}/
+              .media-body
+                %p
+                  %strong Helen Bennett
+                  %time.float-right{datetime: "2018-07-14 20:00"} 3 hours ago
+                %p.text-truncate Objectively underwhelm cross-unit web-readiness before sticky outsourcing.
+            %a.media{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-success.bg-purple FT
+              .media-body
+                %p
+                  %strong Fidel Tonn
+                  %time.float-right{datetime: "2018-07-14 20:00"} 21 hours ago
+                %p.text-truncate Interactively innovate transparent relationships with holistic infrastructures.
+            %a.media{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-danger
+                %img{alt: "...", src: image_url('avatar/4.jpg')}/
+              .media-body
+                %p
+                  %strong Freddie Arends
+                  %time.float-right{datetime: "2018-07-14 20:00"} Yesterday
+                %p.text-truncate Collaboratively visualize corporate initiatives for web-enabled value.
+            %a.media{href: "page-app/mailbox-single.html"}
+              %span.avatar.status-success
+                %img{alt: "...", src: image_url('avatar/5.jpg')}/
+              .media-body
+                %p
+                  %strong Freddie Arends
+                  %time.float-right{datetime: "2018-07-14 20:00"} Yesterday
+                %p.text-truncate Interactively reinvent standards compliant supply chains through next-generation bandwidth.
+          .dropdown-footer
+            .left
+              %a{href: "#"} Read all messages
+            .right
+              %a{"data-provide" => "tooltip", href: "#", title: "Mark all as read"}
+                %i.fa.fa-circle-o
+              %a{"data-provide" => "tooltip", href: "#", title: "Settings"}
+                %i.fa.fa-gear
+      / END Messages
+/ END Topbar

@@ -1,0 +1,35 @@
+
+%aside.sidebar.sidebar-icons-right.sidebar-icons-boxed.sidebar-expand-lg
+  %header.sidebar-header
+    %a.logo-icon{:href => "index.html"}
+      %img{:alt => "logo icon", :src => image_url('logo-icon-light.png')}/
+    %span.logo
+      %a{:href => "index.html"}
+      %img{:alt => "logo", :src => image_url('logo-light.png')}/
+    %span.sidebar-toggle-fold
+  %nav.sidebar-navigation
+    %ul.menu
+      %li.menu-category Preview
+      %li.menu-item
+      %a.menu-link{:href => "dashboard/index.html"}
+        %span.icon.fa.fa-home
+        %span.title Dashboard
+      %li.menu-item
+      %a.menu-link{:href => "#"}
+        %span.icon.fa.fa-tv
+        %span.title Samples
+        %span.arrow
+      %ul
+        %li
+          %a.menu-link{:href => "samples/invoicer/index.html", :target => "_blank"}
+          %span.dot
+          %span.title Invoicer
+        %li.menu-item
+          %a.menu-link{:href => "samples/job/index.html", :target => "_blank"}
+          %span.dot
+          %span.title Job Management
+        %li.menu-item
+          %a.menu-link{:href => "samples/support/index.html", :target => "_blank"}
+          %span.dot
+          %span.title Support System
+
