@@ -11,12 +11,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <p class="navbar-text pull-right">
-    
-    <%= render 'header/index' %>
-    <%= yield %>
+    <%= render 'header/index' if current_user.present? %>
+    <%= render 'sidebar/index' if current_user.present? %>
+    <%= render 'frontend/home' if current_user.present? %>
+    <%= render 'frontend/form_user/login'%>
+
   </body>
 </html>

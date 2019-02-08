@@ -11,7 +11,12 @@ gem 'haml-rails'
 gem 'mysql2'
 # we use bootstrap 4 instead of 3
 gem 'bootstrap'
+
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'rails-ujs'
+gem 'jquery-ui-rails'
+
 gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.1'

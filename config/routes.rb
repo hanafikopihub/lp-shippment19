@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pricelists
+  resources :couriers
   get 'admin/index'
   get 'home/index'
   devise_for :users

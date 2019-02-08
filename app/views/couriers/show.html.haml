@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @courier.name
+%p
+  %b Address:
+  = @courier.address
+
+= link_to 'Edit', edit_courier_path(@courier)
+\|
+= link_to 'Back', couriers_path

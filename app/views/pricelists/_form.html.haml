@@ -1,0 +1,30 @@
+
+- if @pricelist.errors.any?
+  = render 'frontend/exception/form/error_form', params: @pricelist
+
+.card
+  .card-body
+    .form
+      = form_for @pricelist do |f|
+        .field.form-group
+          = f.label :name, class: 'require'
+          = f.text_field :name, class: 'form-control'
+        .field.form-group
+          = f.label :courier_id, class: 'require'
+          = select_tag('pricelist[courier_id]', options_from_collection_for_select(Courier.all, :id, :name, @courier), include_blank: "Select Courier", class: 'form-control')
+        .field.form-group
+          = f.label :price, class: 'require'
+          .input-group
+            .input-group-prepend
+              %span.input-group-text= '€'
+            = f.text_field :price, class: 'form-control', type: 'number'
+            .input-group-append
+              %span.input-group-text= '.00'
+        .field.form-group
+          = f.label :note
+          = f.text_field :note, class: 'form-control'
+        .d-flex.justify-content-between
+          .actions.d-flex.justify-content-start
+            = link_to 'Back', pricelists_path, class: 'btn btn-default'
+          .actions.d-flex.justify-content-end
+            = f.submit 'Save', class: 'btn btn-primary'

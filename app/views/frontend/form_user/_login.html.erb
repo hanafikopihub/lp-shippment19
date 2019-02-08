@@ -1,0 +1,10 @@
+<% if alert.present? %>
+  <div class="alert-notif-login alert alert-danger position-absolute" role="alert">
+    <button type="button" class="close" data-dismiss="callout" aria-label="Close">
+      <span>×</span>
+    </button> 
+    <div class=""><%= alert %></div>
+  </div>
+<% end %> 
+
+<%= yield %>

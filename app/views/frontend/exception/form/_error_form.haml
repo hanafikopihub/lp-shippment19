@@ -1,0 +1,12 @@
+#error_explanation
+  - params.errors.full_messages.each do |message|
+    .callout.callout-danger{:role => "alert"}
+      %button.close{"aria-label" => "Close", "data-dismiss" => "callout", :type => "button"}
+        %span ×
+      %p
+        %a{:href => "#"}= message
+
+:javascript
+  $('.close').click(function(){
+      $(this).parent().hide('slow')
+  })

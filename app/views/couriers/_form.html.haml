@@ -1,0 +1,27 @@
+
+- if @courier.errors.any?
+  = render 'frontend/exception/form/error_form', params: @courier 
+
+.card
+  .card-body
+    .form
+      = form_for @courier do |f|
+        .field.form-group
+          = f.label :name, class: 'require'
+          = f.text_field :name, class: 'form-control'
+        .field.form-group
+          = f.label :price, class: 'require'
+          .input-group
+            .input-group-prepend
+              %span.input-group-text= '€'
+            = f.text_field :price, class: 'form-control', type: 'number'
+            .input-group-append
+              %span.input-group-text= '.00'
+        .field.form-group
+          = f.label :address
+          = f.text_field :address, class: 'form-control'
+        .d-flex.justify-content-between
+          .actions.d-flex.justify-content-start
+            = link_to 'Back', couriers_path, class: 'btn btn-default'
+          .actions.d-flex.justify-content-end
+            = f.submit 'Save', class: 'btn btn-primary'

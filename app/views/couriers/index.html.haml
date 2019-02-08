@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-6
+      %h1="Listing couriers" 
+
+    .col-6.text-right
+      = link_to 'New Courier', new_courier_path, class: 'btn btn-primary btn-outline'
+%table.table
+  %thead.thead-light
+    %tr
+      %th Name
+      %th Price
+      %th Address
+      %th
+
+  %tbody
+    - @couriers.each do |courier|
+      %tr
+        %td= courier.name
+        %td= number_to_currency(courier.price,:unit=>'€', format: "%n %u")
+        %td= courier.address
+        %td.text-right.table-actions
+          = link_to courier, class: 'mx-2 table-action hover-info' do
+            %i.ti-zoom-in
+          = link_to edit_courier_path(courier), class: 'mx-2 table-action hover-primary' do
+            %i.ti-pencil
+          = link_to courier, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mx-2 table-action hover-danger' do
+            %i.ti-trash
+
+%br
+
