@@ -18,12 +18,10 @@
     - @pricelists.each do |pricelist|
       %tr
         %td= pricelist.name
-        %td= pricelist.courier.name
+        %td= pricelist.courier&.name
         %td= number_to_currency(pricelist.price,:unit=>'€', format: "%n %u")
         %td= pricelist.note
         %td.text-right.table-actions
-          = link_to pricelist, class: 'mx-2 table-action hover-info' do
-            %i.ti-zoom-in
           = link_to edit_pricelist_path(pricelist), class: 'mx-2 table-action hover-primary' do
             %i.ti-pencil
           = link_to pricelist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mx-2 table-action hover-danger' do

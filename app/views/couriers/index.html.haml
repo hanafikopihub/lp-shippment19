@@ -20,8 +20,6 @@
         %td= number_to_currency(courier.price,:unit=>'€', format: "%n %u")
         %td= courier.address
         %td.text-right.table-actions
-          = link_to courier, class: 'mx-2 table-action hover-info' do
-            %i.ti-zoom-in
           = link_to edit_courier_path(courier), class: 'mx-2 table-action hover-primary' do
             %i.ti-pencil
           = link_to courier, method: :delete, data: { confirm: 'Are you sure?' }, class: 'mx-2 table-action hover-danger' do

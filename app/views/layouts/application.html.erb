@@ -14,8 +14,9 @@
 
     <%= render 'header/index' if current_user.present? %>
     <%= render 'sidebar/index' if current_user.present? %>
+
     <%= render 'frontend/home' if current_user.present? %>
-    <%= render 'frontend/form_user/login'%>
+    <%= render 'frontend/form_user/login' unless current_user.present?%>
 
   </body>
 </html>

@@ -11,9 +11,9 @@
     %ul.menu
       %li.menu-category Preview
       %li.menu-item
-      %a.menu-link{:href => "dashboard/index.html"}
+      = link_to root_path, class: 'menu-link' do 
         %span.icon.fa.fa-home
-        %span.title Dashboard
+        .title= t('Dashboard')
       = link_to couriers_path(), class: 'menu-link' do 
         %span.icon.fa.fa-minus-circle
         .title= t('Courier')

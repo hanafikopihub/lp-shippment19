@@ -42,6 +42,7 @@ class PricelistsController < ApplicationController
   # PATCH/PUT /pricelists/1
   # PATCH/PUT /pricelists/1.json
   def update
+    @pricelist.user_id = current_user.id
     respond_to do |format|
       if @pricelist.update(pricelist_params)
         format.html { redirect_to action: :index }
