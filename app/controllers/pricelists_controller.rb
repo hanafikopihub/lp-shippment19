@@ -21,6 +21,7 @@ class PricelistsController < ApplicationController
   # GET /pricelists/1/edit
   def edit
     @courier = Pricelist.find(params[:id]).courier_id
+    @courier_price = Pricelist.find(params[:id]).courier.price
   end
 
   # POST /pricelists
@@ -64,6 +65,13 @@ class PricelistsController < ApplicationController
     end
   end
 
+  def get_price
+    @courier_price = Courier.find(params[:courier_id]).price
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pricelist

@@ -11,7 +11,7 @@ gem 'haml-rails'
 gem 'mysql2'
 # we use bootstrap 4 instead of 3
 gem 'bootstrap'
-
+gem 'cancancan', '~> 2.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'rails-ujs'

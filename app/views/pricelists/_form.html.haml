@@ -11,13 +11,13 @@
           = f.text_field :name, class: 'form-control'
         .field.form-group
           = f.label :courier_id, class: 'require'
-          = select_tag('pricelist[courier_id]', options_from_collection_for_select(Courier.all, :id, :name, @courier), include_blank: "Select Courier", class: 'form-control')
+          = select_tag('pricelist[courier_id]', options_from_collection_for_select(Courier.all, :id, :name, @courier), include_blank: "Select Courier", class: 'form-control', id: 'select-courier')
         .field.form-group
           = f.label :price, class: 'require'
           .input-group
             .input-group-prepend
               %span.input-group-text= '€'
-            = f.text_field :price, class: 'form-control', type: 'number'
+            = f.text_field :price, class: 'form-control', type: 'number', :min => @courier_price, :value => f.object.price, id: 'smname'
             .input-group-append
               %span.input-group-text= '.00'
         .field.form-group
@@ -28,3 +28,15 @@
             = link_to 'Back', pricelists_path, class: 'btn btn-default'
           .actions.d-flex.justify-content-end
             = f.submit 'Save', class: 'btn btn-primary'
+
+:javascript
+  $('#select-courier').change(function(){
+    var courier_id = $(this).val()
+    
+    $.ajax({
+        url: "/pricelists/get_price",
+        dataType: "script",
+        type: 'GET',
+        data:  { courier_id: courier_id}
+    })
+  })

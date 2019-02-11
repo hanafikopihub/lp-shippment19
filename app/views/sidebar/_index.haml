@@ -14,28 +14,11 @@
       = link_to root_path, class: 'menu-link' do 
         %span.icon.fa.fa-home
         .title= t('Dashboard')
-      = link_to couriers_path(), class: 'menu-link' do 
-        %span.icon.fa.fa-minus-circle
-        .title= t('Courier')
+      - if current_user.role == 'admin'
+        = link_to couriers_path(), class: 'menu-link' do 
+          %span.icon.fa.fa-minus-circle
+          .title= t('Courier')
       = link_to pricelists_path(), class: 'menu-link' do 
         %span.icon.fa.fa-minus-circle
         .title= t('Price List')
       %li.menu-item
-      %a.menu-link{:href => "#"}
-        %span.icon.fa.fa-tv
-        %span.title Samples
-        %span.arrow
-      %ul
-        %li
-          %a.menu-link{:href => "samples/invoicer/index.html", :target => "_blank"}
-          %span.dot
-          %span.title Invoicer
-        %li.menu-item
-          %a.menu-link{:href => "samples/job/index.html", :target => "_blank"}
-          %span.dot
-          %span.title Job Management
-        %li.menu-item
-          %a.menu-link{:href => "samples/support/index.html", :target => "_blank"}
-          %span.dot
-          %span.title Support System
-

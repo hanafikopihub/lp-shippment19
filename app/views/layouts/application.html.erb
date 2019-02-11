@@ -11,12 +11,17 @@
   </head>
 
   <body>
-
-    <%= render 'header/index' if current_user.present? %>
-    <%= render 'sidebar/index' if current_user.present? %>
-
-    <%= render 'frontend/home' if current_user.present? %>
-    <%= render 'frontend/form_user/login' unless current_user.present?%>
-
+    <% if current_user.present? %>
+      <% unless current_user.role == 'user' %>
+        <%= render 'header/index' %>
+        <%= render 'sidebar/index' %>
+        <%= render 'frontend/main' %>
+      <% else %>
+        <%= current_user.id %>
+        <%= yield %>
+      <% end %>
+    <% else %>
+        <%= yield %>
+    <% end %>
   </body>
 </html>

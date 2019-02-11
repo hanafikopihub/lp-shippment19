@@ -5,6 +5,11 @@ class CouriersController < ApplicationController
   # GET /couriers.json
   def index
     @couriers = Courier.all
+    if current_user
+      if current_user.role != "admin"
+        authorize! :manage, @couriers
+      end
+    end
   end
 
   # GET /couriers/1

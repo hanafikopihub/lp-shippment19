@@ -1,0 +1,16 @@
+.row.no-margin.h-fullscreen{:style => "padding-top: 10%"}
+  .col-12
+    .card.card-transparent.center-h.text-center
+      %h1.text-secondary.lh-1{:style => "font-size: 200px"}
+        %i.fa.fa-gear
+      %hr.w-30px/
+      %h1.text-uppercase=notice
+      %p.lead
+        We're sorry for the inconvenience.
+        %br>/
+        Please check back later.
+  %footer.col-12.align-self-end.text-center.fs-13
+    %p
+      Copyright © 2019
+      = succeed "." do
+        %a{:href => "http://thetheme.io/theadmin"} TheAdmin

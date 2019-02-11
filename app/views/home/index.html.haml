@@ -1,2 +1,8 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+
+
+= link_to new_user_session_path, class:"dropdown-item" do
+    %i.ti-user
+    = "Login"
+= link_to  destroy_user_session_path, method: :delete, class: "dropdown-item" do
+    %i.ti-user
+    = "Logout"
